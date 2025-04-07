@@ -58,6 +58,8 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/userservice:${{ steps.get_tag.outputs.tag }}
 
       - name: Create GitHub Tag
+        env: 
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
